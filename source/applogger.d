@@ -7,6 +7,7 @@ import std.file: read, exists, mkdir;
 import std.string;
 import std.process;
 import std.zip;
+import std.string;
 import std.json;
 import std.conv;
 import std.algorithm;
@@ -42,13 +43,18 @@ void Extract(string fname, string outputdir) {
 	foreach (ArchiveMember am; zip.directory)
 		{
 			try {
-				zip.expand(am);
-				logMessage("EXTRACT - " ~ am.name);
-				
-				auto data = cast(string)am.expandedData();
-				File d = File(outputdir ~ "/" ~ am.name, "wb");
-				d.write(data);
-				d.close();
+				if (!am.name.endsWith("/")) {
+					zip.expand(am);
+					logMessage("EXTRACT - " ~ am.name);
+					
+					auto data = cast(string)am.expandedData();
+					File d = File(outputdir ~ "/" ~ am.name, "wb");
+					d.write(data);
+					d.close();
+				} else {
+					MakeIfnot(outputdir ~ "/" ~ am.name);
+
+				}
 			} catch (Exception e) {
 				errorMessage("Failed to extract " ~ am.name);
 			}
