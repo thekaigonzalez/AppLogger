@@ -12,12 +12,6 @@ import std.conv;
 import std.algorithm;
 import std.array;
 
-void print_usage(char err='n', string msg="") {
-	writeln("usage: nfy-get <NFy|NFyJS|NFyMono|LibNFy>");
-	if (err=='-') write ("error: " ~ msg);
-	
-}
-
 void logMessage(string msg) {
 	writeln(("-> " ~ msg).color("blue"));
 }
