@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/applogger
+applogger.so
+applogger.dylib
+applogger.dll
+applogger.a
+applogger.lib
+applogger-test-*
+*.exe
+*.o
+*.obj
+*.lst
