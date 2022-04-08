@@ -56,7 +56,7 @@ void Extract(string fname, string outputdir) {
 
 				}
 			} catch (Exception e) {
-				errorMessage("Failed to extract " ~ am.name);
+				errorMessage("Failed to extract " ~ am.name ~ "\n" + e.toString());
 			}
 		}
 }
