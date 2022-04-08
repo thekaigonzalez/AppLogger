@@ -53,7 +53,6 @@ void Extract(string fname, string outputdir) {
 					d.close();
 				} else {
 					MakeIfnot(outputdir ~ "/" ~ am.name);
-
 				}
 			} catch (Exception e) {
 				errorMessage("Failed to extract " ~ am.name);
